@@ -11,7 +11,11 @@ class Alien < ActiveRecord::Base
         self.light_years_to_home_planet * 2 * self.visitations.length
     end
 
-    def self.most_frequent_visitor
-        Alien.each.Visitation
+    # def self.most_frequent_visitor
+        
+    # end
+
+    def self.average_light_years_to_home_planet
+        self.all.sum(:light_years_to_home_planet) / self.all.length
     end
 end
